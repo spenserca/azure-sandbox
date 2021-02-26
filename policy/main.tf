@@ -3,7 +3,7 @@ terraform {
     resource_group_name  = "azure-sandbox-tf"
     storage_account_name = "scaazsbxtfstate"
     container_name       = "az-sandbox-tf-state"
-    key                  = "prod.terraform.tfstate"
+    key                  = "az.sbx.policy.terraform.tfstate"
   }
 
   required_providers {
@@ -20,5 +20,5 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "rg_policy" {
   location = "Central US"
-  name     = "spenserca-policy"
+  name     = "azure-sandbox-policy"
 }
