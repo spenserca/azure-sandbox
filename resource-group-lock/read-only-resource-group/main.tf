@@ -30,4 +30,8 @@ resource "azurerm_management_lock" "lock" {
   scope      = azurerm_resource_group.read_only.id
   lock_level = "ReadOnly"
   notes      = "This resource group is read-only"
+
+  depends_on = [
+    azurerm_storage_account.storage
+  ]
 }
