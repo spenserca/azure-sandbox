@@ -17,6 +17,14 @@ resource "azurerm_resource_group" "read_only" {
   location = "centralus"
 }
 
+resource "azurerm_storage_account" "storage" {
+  name                     = "stscarot01"
+  resource_group_name      = azurerm_resource_group.read_only.name
+  location                 = azurerm_resource_group.read_only.location
+  account_replication_type = "LRS"
+  account_tier             = "Standard"
+}
+
 resource "azurerm_management_lock" "lock" {
   name       = "read-only-resource-group-lock"
   scope      = azurerm_resource_group.read_only.id
